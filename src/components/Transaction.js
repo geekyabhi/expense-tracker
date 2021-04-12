@@ -10,7 +10,7 @@ const Transaction = (props) => {
                 <span>
                     {sign}${Math.abs(props.transaction.amount)}
                 </span>
-                <button className="delete-btn" onClick={()=>deleteTransaction(props.transaction.id)}>
+                <button className="delete-btn" onClick={()=>deleteTransaction(props.transaction._id)}>
                     x
                 </button>
             </li>
