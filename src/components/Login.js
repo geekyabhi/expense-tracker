@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Loader from '../components/Loader'
 import { Col, Row,Button, Form, Alert} from 'react-bootstrap'
-import { Link ,useHistory} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import FormContainer from '../components/FormContainer'
 import axios from 'axios'
 const LoginScreen = (props) => {
