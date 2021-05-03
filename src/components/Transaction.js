@@ -16,7 +16,7 @@ const Transaction = (props) => {
         }
         try{    
             setloading(true)
-            await axios.delete(`/api/transactions/${id}`,config)
+            await axios.delete(`https://expense-tracker-backend-abhi.herokuapp.com/api/transactions/${id}`,config)
             setloading(false)
             props.settempChanges(!props.tempChanges)
         }catch(e){

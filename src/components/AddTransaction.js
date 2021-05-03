@@ -24,7 +24,7 @@ const AddTransaction = ({currentUser,settempChanges1,tempChanges1}) => {
         
         }
         try{
-            const data = await axios.post('/api/transactions',newTransaction,config)
+            const data = await axios.post('https://expense-tracker-backend-abhi.herokuapp.com/api/transactions',newTransaction,config)
             seterror(data.error)
             setloading(false)
             settempChanges1(!tempChanges1)

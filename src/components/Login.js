@@ -20,7 +20,7 @@ const LoginScreen = (props) => {
         e.preventDefault()
         try{
             setloading(true)
-            const data=await axios.post('/api/users/login',{email,password})
+            const data=await axios.post('https://expense-tracker-backend-abhi.herokuapp.com/api/users/login',{email,password})
             data.data?localStorage.setItem('expenseUser',JSON.stringify(data.data)):localStorage.setItem('expenseUser','')
             seterror(data.error)
             setloading(false)

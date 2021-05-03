@@ -21,7 +21,7 @@ const Register = () => {
         else{
         try{
             setloading(true)
-            const data=await axios.post('/api/users',{name,email,password})
+            const data=await axios.post('https://expense-tracker-backend-abhi.herokuapp.com/api/users',{name,email,password})
             data.data?localStorage.setItem('user',JSON.stringify(data.data)):localStorage.setItem('expenseUser','')
             seterror(data.error)
             setloading(false)

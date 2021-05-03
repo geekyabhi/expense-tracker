@@ -19,7 +19,7 @@ const TransactionList = ({currentUser,tempChanges1}) => {
             }
             try{
                 setloading(true)
-                const data=await axios.get('/api/transactions',config)
+                const data=await axios.get('https://expense-tracker-backend-abhi.herokuapp.com/api/transactions',config)
                 settransactions(data.data.data)
                 setloading(false)
             }catch(e){
