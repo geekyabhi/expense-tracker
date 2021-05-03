@@ -1,32 +1,30 @@
-import React, {useState} from 'react'
+import React, { useState} from 'react'
 import Loader from '../components/Loader'
 import { Col, Row,Button, Form, Alert} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import FormContainer from '../components/FormContainer'
 import axios from 'axios'
 const LoginScreen = (props) => {
-    // const history=useHistory()
+    const history=useHistory()
 
-    const history=props.history
-    const currentUser=props.currentUser
-
-    console.log(props)
+    // const history=props.history
+    // const data=localStorage.getItem('expenseUser')
+    // const currentUser=JSON.parse(data)
+    // console.log(currentUser)
 
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [error, seterror] = useState(null)
     const [loading, setloading] = useState(false)
-
     const submitHandler=async (e)=>{
         e.preventDefault()
         try{
             setloading(true)
             const data=await axios.post('/api/users/login',{email,password})
-            history.push("/")
-            console.log(history)
             data.data?localStorage.setItem('expenseUser',JSON.stringify(data.data)):localStorage.setItem('expenseUser','')
             seterror(data.error)
             setloading(false)
+            history.push("/")
         }catch(e){
             console.log(e)
             setloading(false)
@@ -34,7 +32,7 @@ const LoginScreen = (props) => {
         }
     }
 
-    return currentUser?<></>:(
+    return(
         <>
             <FormContainer>
                 <h1>Sign In</h1>

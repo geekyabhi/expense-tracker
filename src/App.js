@@ -3,9 +3,13 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import LoginScreen from './components/Login';
 import MainScreen from './components/MainScreen';
 import Register from './components/Register';
+import { useEffect } from 'react';
+
 function App() {
   const data=localStorage.getItem('expenseUser')
   const currentUser=JSON.parse(data)
+  useEffect(() => {
+  }, [currentUser])
   return (
     <div>
     <Router>

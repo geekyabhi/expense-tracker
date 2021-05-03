@@ -12,7 +12,12 @@ const MainScreen = ({currentUser}) => {
     
     const [tempChanges1, settempChanges1] = useState(false)
 
-    if(!currentUser){
+    
+    if(currentUser){
+        if(!currentUser._id){
+            history.push('/login')
+        }
+    }else{
         history.push('/login')
     }
     return currentUser?(

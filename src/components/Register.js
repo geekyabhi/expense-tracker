@@ -4,7 +4,7 @@ import { Col, Row,Button, Form, Alert} from 'react-bootstrap'
 import { Link ,useHistory} from 'react-router-dom'
 import FormContainer from '../components/FormContainer'
 import axios from 'axios'
-const Register = ({currentUser}) => {
+const Register = () => {
     const history=useHistory()
     const [name, setname] = useState('')
     const [email,setEmail]=useState('')
@@ -22,10 +22,10 @@ const Register = ({currentUser}) => {
         try{
             setloading(true)
             const data=await axios.post('/api/users',{name,email,password})
-            history.push('/home')
-            data.data?localStorage.setItem('user',JSON.stringify(data.data)):localStorage.setItem('user','')
+            data.data?localStorage.setItem('user',JSON.stringify(data.data)):localStorage.setItem('expenseUser','')
             seterror(data.error)
             setloading(false)
+            history.push('/')
         }catch(e){
             console.log(e)
             setloading(false)
@@ -33,7 +33,7 @@ const Register = ({currentUser}) => {
         }}
     }
 
-    return currentUser?null:(
+    return(
         <>
             <FormContainer>
                 <h1>Sign Up</h1>
