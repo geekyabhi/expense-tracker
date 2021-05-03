@@ -47,5 +47,5 @@
   "devDependencies": {
     "eslint-plugin-react-hooks": "^4.2.0"
   },
-  "proxy": "https://expense-tracker-backend-abhi.herokuapp.com/"
+  "proxy": "https://expense-tracker-backend-abhi.herokuapp.com"
 }
